@@ -203,13 +203,7 @@ def main():
     menubar = makeMenuBar(root, initial_menubar)
 
     root.mainloop()
-    
-<<<<<<< HEAD:caloriecounter/CalorieCounter.py
-<<<<<<< HEAD:caloriecounter/CalorieCounter.py
+
 
 if __name__ == '__main__':
     main()
-=======
->>>>>>> d612d56c413414e884dd3e99f6f5babe7284bb88:src/CalorieCounter.py
-=======
->>>>>>> d612d56c413414e884dd3e99f6f5babe7284bb88:src/CalorieCounter.py
