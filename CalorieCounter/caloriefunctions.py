@@ -19,6 +19,13 @@
 
 import math
 
+# # # # # # # # # # # # # # # # # # # # # # # #
+#
+#   conversion/calculation functions
+#
+# # # # # # # # # # # # # # # # # # # # # # # #
+
+
 def convertToFloat(x):
     """
     This function checks that the input can be converted to a float, and then
@@ -55,6 +62,13 @@ def calculateRER(weight):
     return RER
 
 
+# # # # # # # # # # # # # # # # # # # # # # # #
+#
+#   Different dog 'type' calorie functions
+#
+# # # # # # # # # # # # # # # # # # # # # # # #
+
+
 def neuteredAdult(dog_weight):
     RER = calculateRER(dog_weight)
     return math.ceil(1.6 * RER)
@@ -77,8 +91,7 @@ def weightLoss(dog_weight):
 
 def weightGainNeutered(dog_weight):
     """
-    Range for weight gain for neutered dogs - need to look at this 
-    later for more appropriate numbers
+    Range for weight gain for neutered dogs
     """
     RER = calculateRER(dog_weight)
     minimum = math.ceil(1.6 * RER)
@@ -88,8 +101,7 @@ def weightGainNeutered(dog_weight):
 
 def weightGainIntact(dog_weight):
     """
-    Range for weight gain for neutered dogs - need to look at this 
-    later for more appropriate numbers
+    Range for weight gain for intact dogs
     """
     RER = calculateRER(dog_weight)
     minimum = math.ceil(1.8 * RER)
