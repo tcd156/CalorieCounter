@@ -75,14 +75,25 @@ def weightLoss(dog_weight):
     return math.ceil(RER)
 
 
-def weightGain(dog_weight):
+def weightGainNeutered(dog_weight):
     """
-    Range for weight gain - need to look at this later for more appropriate
-    numbers
+    Range for weight gain for neutered dogs - need to look at this 
+    later for more appropriate numbers
     """
     RER = calculateRER(dog_weight)
-    minimum = math.ceil(1.2 * RER)
+    minimum = math.ceil(1.6 * RER)
     maximum = math.ceil(1.8 * RER)
+    return (minimum, maximum)
+
+
+def weightGainIntact(dog_weight):
+    """
+    Range for weight gain for neutered dogs - need to look at this 
+    later for more appropriate numbers
+    """
+    RER = calculateRER(dog_weight)
+    minimum = math.ceil(1.8 * RER)
+    maximum = math.ceil(2.0 * RER)
     return (minimum, maximum)
 
 

@@ -77,8 +77,14 @@ class Application(Frame):
 
             self.setTextBoxState(message)
 
-        elif weight_needs == "Gain weight":
-            min_cal, max_cal = caloriefunctions.weightGain(dog_weight)
+        elif weight_needs == "Gain weight" and dog_type == 'intact':
+            min_cal, max_cal = caloriefunctions.weightGainIntact(dog_weight)
+            message = "The dog should be eating between %d - %d calories per day to gain weight." %(min_cal, max_cal)
+            
+            self.setTextBoxState(message)
+
+        elif weight_needs == "Gain weight" and dog_type == 'neutered':
+            min_cal, max_cal = caloriefunctions.weightGainNeutered(dog_weight)
             message = "The dog should be eating between %d - %d calories per day to gain weight." %(min_cal, max_cal)
             
             self.setTextBoxState(message)
@@ -96,7 +102,7 @@ class Application(Frame):
 
         weight_needs = self.original.get()
 
-        if checked_dog_weight:
+        if checked_dog_weight and (weight > 0):
             self.checkDogType(dog_type_choice, checked_dog_weight, weight_needs)
         else:
             message = "Please check your entry."
