@@ -169,7 +169,7 @@ def aboutPopUp(root):
     about.geometry("250x150")
     about.transient(master = root)
     about.title("About Calorie Counter")
-    about_message = "\nCalorie Counter - ALPHA - Version: 0.1" + "\nWritten by: Tyler Dennis & Allie Alvey\n" + "\n Contact: tcd156@hotmail.com\n"
+    about_message = "\nCalorie Counter - ALPHA - Version: 0.2" + "\nWritten by: Tyler Dennis & Allie Alvey\n" + "\n Contact: tcd156@hotmail.com\n"
 
     about_msg = Label(about, text=about_message)
     about_msg.pack(side = "top", fill = "both", expand = 1)
@@ -200,8 +200,6 @@ def main():
     root.iconbitmap(default = 'favicon.ico')
     root.title("Calorie Counter")
     root.geometry("440x300")
-
-    #Create a menu bar for app
 
     app = Application(root)
 

@@ -56,8 +56,8 @@ def calculateRER(weight):
     #This is another common eqution used - gives high calorie amounts as 
     #the dog weight increases that are much too high. May use as a range in the
     #future.
-    #RER = math.ceil(70 * (weight_kilograms ** (3/4)))
     weight_kilograms = weight / 2.2
+    #RER = math.ceil(70 * (weight_kilograms ** (3/4)))
     RER = math.ceil((weight_kilograms * 30) + 70)
     return RER
 
