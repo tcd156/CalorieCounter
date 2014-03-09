@@ -15,12 +15,10 @@
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-
 from Tkinter import *
 import caloriefunctions
 
-
-class Application(Frame):
+class CounterApp(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
         self.grid()
@@ -160,54 +158,31 @@ class Application(Frame):
         self.option_box.grid(row = 1, column = 2, sticky = 'e')
         self.option_box.config(height = 1, width = 20)
 
+    def aboutPopUp(self, root):
+        """
+        Pop up dialog for About menu in menu bar
+        """
+        about = Toplevel(takefocus = True)
+        about.geometry("250x150")
+        about.transient(master = root)
+        about.title("About Calorie Counter")
+        about_message = "\nCalorie Counter - ALPHA - Version: 0.2" + "\nWritten by: Tyler Dennis & Allie Alvey\n" + "\n Contact: tcd156@hotmail.com\n"
 
-def aboutPopUp(root):
-    """
-    Pop up dialog for About menu in menu bar
-    """
-    about = Toplevel(takefocus = True)
-    about.geometry("250x150")
-    about.transient(master = root)
-    about.title("About Calorie Counter")
-    about_message = "\nCalorie Counter - ALPHA - Version: 0.2" + "\nWritten by: Tyler Dennis & Allie Alvey\n" + "\n Contact: tcd156@hotmail.com\n"
+        about_msg = Label(about, text=about_message)
+        about_msg.pack(side = "top", fill = "both", expand = 1)
 
-    about_msg = Label(about, text=about_message)
-    about_msg.pack(side = "top", fill = "both", expand = 1)
+        button = Button(about, text = "Dismiss", command = about.destroy, pady = 10)
+        button.pack()
 
-    button = Button(about, text = "Dismiss", command = about.destroy, pady = 10)
-    button.pack()
-
-
-    #about.wait_window()
-
-def makeMenuBar(root, menubar):
-    """
-    Basic menu bar creation
-    """
-    filemenu = Menu(menubar, tearoff = 0)
-    filemenu.add_command(label = "Exit", command = root.quit)
-    menubar.add_cascade(label = "File", menu = filemenu)
-    
-    aboutmenu = Menu(menubar, tearoff = 0)
-    menubar.add_cascade(label = "About", menu = aboutmenu)
-    aboutmenu.add_command(label = "About Calorie Counter", command = lambda: aboutPopUp(root))
-    root.config(menu = menubar)
-
-
-def main():
-    #Set default application with title, window size and icon
-    root = Tk()
-    root.iconbitmap(default = 'favicon.ico')
-    root.title("Calorie Counter")
-    root.geometry("440x300")
-
-    app = Application(root)
-
-    initial_menubar = Menu(root)
-    menubar = makeMenuBar(root, initial_menubar)
-
-    root.mainloop()
-
-
-if __name__ == '__main__':
-    main()
+    def makeMenuBar(self, root, menubar):
+        """
+        Basic menu bar creation
+        """
+        filemenu = Menu(menubar, tearoff = 0)
+        filemenu.add_command(label = "Exit", command = root.quit)
+        menubar.add_cascade(label = "File", menu = filemenu)
+            
+        aboutmenu = Menu(menubar, tearoff = 0)
+        menubar.add_cascade(label = "About", menu = aboutmenu)
+        aboutmenu.add_command(label = "About Calorie Counter", command = lambda: self.aboutPopUp(root))
+        root.config(menu = menubar)
